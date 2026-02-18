@@ -12,6 +12,22 @@ const actionsEl = document.getElementById('actions');
 const copyBtn = document.getElementById('copyBtn');
 const resetBtn = document.getElementById('resetBtn');
 const toastEl = document.getElementById('toast');
+const themeToggleBtn = document.getElementById('themeToggle');
+
+// 테마 초기화: localStorage 우선, 없으면 시스템 설정 따름
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = savedTheme ?? (prefersDark ? 'dark' : 'light');
+document.documentElement.dataset.theme = initialTheme;
+
+function toggleTheme() {
+  const current = document.documentElement.dataset.theme;
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('theme', next);
+}
+
+themeToggleBtn.addEventListener('click', toggleTheme);
 
 let gameCount = 5;
 let lastResults = [];

@@ -11,9 +11,17 @@
   --border: oklch(35% 0.03 260);
   --text: oklch(95% 0.01 260);
   --text-muted: oklch(65% 0.02 260);
-  --accent: oklch(70% 0.2 50);
   --radius: 1rem;
   --ball-size: 3rem;
+}
+
+[data-theme="light"] {
+  --bg: oklch(97% 0.005 260);
+  --surface: oklch(100% 0 0);
+  --surface-2: oklch(93% 0.008 260);
+  --border: oklch(85% 0.01 260);
+  --text: oklch(18% 0.02 260);
+  --text-muted: oklch(48% 0.02 260);
 }
 
 body {
@@ -25,6 +33,7 @@ body {
   align-items: flex-start;
   justify-content: center;
   padding: 2rem 1rem 4rem;
+  transition: background 0.25s, color 0.25s;
 }
 
 .container {
@@ -39,6 +48,39 @@ body {
 header {
   text-align: center;
 }
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-toggle {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.15s, transform 0.1s, border-color 0.25s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--border);
+}
+
+.theme-toggle:active {
+  transform: scale(0.9);
+}
+
+/* 다크모드: 달 아이콘, 라이트모드: 태양 아이콘 */
+:root .theme-icon::before { content: '🌙'; }
+[data-theme="light"] .theme-icon::before { content: '☀️'; }
 
 h1 {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
@@ -292,7 +334,7 @@ h1 {
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%) translateY(4rem);
-  background: oklch(30% 0.03 260);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   color: var(--text);
   padding: 0.7rem 1.4rem;
