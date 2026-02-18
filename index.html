@@ -1,14 +1,51 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>로또 자동 추첨기</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div class="container">
+    <header>
+      <h1>🎱 로또 자동 추첨기</h1>
+      <p class="subtitle">1~45 중 6개 번호를 자동으로 추첨합니다</p>
+    </header>
+
+    <div class="controls">
+      <div class="game-count-wrapper">
+        <label for="gameCount">게임 수</label>
+        <div class="count-selector">
+          <button class="count-btn" id="decreaseBtn" aria-label="감소">−</button>
+          <span id="gameCount">5</span>
+          <button class="count-btn" id="increaseBtn" aria-label="증가">+</button>
+        </div>
+      </div>
+      <button class="generate-btn" id="generateBtn">
+        <span class="btn-icon">✨</span>
+        <span>번호 추첨</span>
+      </button>
+    </div>
+
+    <div class="results" id="results"></div>
+
+    <div class="actions" id="actions" hidden>
+      <button class="action-btn copy-btn" id="copyBtn">📋 복사</button>
+      <button class="action-btn reset-btn" id="resetBtn">🔄 초기화</button>
+    </div>
+
+    <div class="color-guide">
+      <span class="guide-item ball yellow-ball">1–10</span>
+      <span class="guide-item ball blue-ball">11–20</span>
+      <span class="guide-item ball red-ball">21–30</span>
+      <span class="guide-item ball gray-ball">31–40</span>
+      <span class="guide-item ball green-ball">41–45</span>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script defer type="module" src="/main.js"></script>
 </body>
 </html>
