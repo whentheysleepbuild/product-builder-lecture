@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제휴 문의 — 로또 자동 추첨기</title>
+  <link href='/style.css' rel='stylesheet'>
+  <style>
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: oklch(65% 0.22 50);
+      box-shadow: 0 0 0 3px oklch(65% 0.22 50 / 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.6rem;
+      background: linear-gradient(135deg, oklch(65% 0.22 50), oklch(58% 0.25 30));
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px oklch(65% 0.22 50 / 0.35);
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px oklch(65% 0.22 50 / 0.45);
+    }
+
+    .submit-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+    }
+
+    .success-msg h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .success-msg p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .error-msg {
+      font-size: 0.82rem;
+      color: oklch(60% 0.22 25);
+      margin-top: 0.2rem;
+      display: none;
+    }
+
+    .form-group:has(input:invalid:not(:placeholder-shown)) .error-msg,
+    .form-group:has(textarea:invalid:not(:placeholder-shown)) .error-msg {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a class="lang-btn" href="/en/contact.html" aria-label="English">🌐</a>
+        <h1>🤝 제휴 문의</h1>
+        <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+          <span class="theme-icon"></span>
+        </button>
+      </div>
+      <p class="subtitle">협업 및 제휴 제안을 환영합니다</p>
+    </header>
+
+    <div class="contact-card" id="formCard">
+      <form id="contactForm" novalidate>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div class="form-group">
+            <label for="name">이름 *</label>
+            <input type="text" id="name" name="name" placeholder="홍길동" required />
+            <span class="error-msg">이름을 입력해 주세요.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">이메일 *</label>
+            <input type="email" id="email" name="email" placeholder="hello@example.com" required />
+            <span class="error-msg">올바른 이메일 주소를 입력해 주세요.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="company">회사 / 단체명</label>
+            <input type="text" id="company" name="company" placeholder="(선택)" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">문의 내용 *</label>
+            <textarea id="message" name="message" placeholder="제휴 제안 내용을 자유롭게 적어 주세요." required></textarea>
+            <span class="error-msg">문의 내용을 입력해 주세요.</span>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span>📨</span>
+            <span>문의 보내기</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <a class="back-link" href="/">← 로또 추첨기로 돌아가기</a>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    // 테마
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = savedTheme ?? (prefersDark ? 'dark' : 'light');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    // 폼 제출
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const card = document.getElementById('formCard');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.querySelectorAll('input, textarea').forEach(el => el.reportValidity());
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>⏳</span><span>전송 중...</span>';
+
+      try {
+        const res = await fetch('https://formspree.io/f/maqdbkpy', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+
+        if (res.ok) {
+          card.innerHTML = `
+            <div class="success-msg">
+              <span class="success-icon">🎉</span>
+              <h2>문의가 접수됐습니다!</h2>
+              <p>빠른 시일 내에 답변 드리겠습니다.</p>
+            </div>`;
+        } else {
+          throw new Error('server error');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>📨</span><span>문의 보내기</span>';
+        const toast = document.getElementById('toast');
+        toast.textContent = '전송에 실패했습니다. 잠시 후 다시 시도해 주세요.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+    });
+  </script>
+</body>
+</html>

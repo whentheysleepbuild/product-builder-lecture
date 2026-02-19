@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partnership Inquiry — Lotto Number Generator</title>
+  <link href='/style.css' rel='stylesheet'>
+  <style>
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: oklch(65% 0.22 50);
+      box-shadow: 0 0 0 3px oklch(65% 0.22 50 / 0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.6rem;
+      background: linear-gradient(135deg, oklch(65% 0.22 50), oklch(58% 0.25 30));
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px oklch(65% 0.22 50 / 0.35);
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px oklch(65% 0.22 50 / 0.45);
+    }
+
+    .submit-btn:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .success-msg {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+    }
+
+    .success-msg h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .success-msg p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover {
+      color: var(--text);
+    }
+
+    .error-msg {
+      font-size: 0.82rem;
+      color: oklch(60% 0.22 25);
+      margin-top: 0.2rem;
+      display: none;
+    }
+
+    .form-group:has(input:invalid:not(:placeholder-shown)) .error-msg,
+    .form-group:has(textarea:invalid:not(:placeholder-shown)) .error-msg {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a class="lang-btn" href="/contact.html" aria-label="한국어">🇰🇷</a>
+        <h1>🤝 Partnership Inquiry</h1>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon"></span>
+        </button>
+      </div>
+      <p class="subtitle">We welcome collaboration and partnership proposals</p>
+    </header>
+
+    <div class="contact-card" id="formCard">
+      <form id="contactForm" novalidate>
+        <div style="display:flex;flex-direction:column;gap:1.25rem;">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+            <span class="error-msg">Please enter your name.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="hello@example.com" required />
+            <span class="error-msg">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="(optional)" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell us about your partnership proposal." required></textarea>
+            <span class="error-msg">Please enter your message.</span>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span>📨</span>
+            <span>Send Inquiry</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <a class="back-link" href="/en/">← Back to Lotto Generator</a>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    // Theme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = savedTheme ?? (prefersDark ? 'dark' : 'light');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+
+    // Form submit
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const card = document.getElementById('formCard');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.querySelectorAll('input, textarea').forEach(el => el.reportValidity());
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>⏳</span><span>Sending...</span>';
+
+      try {
+        const res = await fetch('https://formspree.io/f/maqdbkpy', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+
+        if (res.ok) {
+          card.innerHTML = `
+            <div class="success-msg">
+              <span class="success-icon">🎉</span>
+              <h2>Inquiry received!</h2>
+              <p>We'll get back to you as soon as possible.</p>
+            </div>`;
+        } else {
+          throw new Error('server error');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>📨</span><span>Send Inquiry</span>';
+        const toast = document.getElementById('toast');
+        toast.textContent = 'Failed to send. Please try again later.';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      }
+    });
+  </script>
+</body>
+</html>
