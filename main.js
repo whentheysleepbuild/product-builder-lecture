@@ -75,7 +75,17 @@ function renderResults(games) {
       const ball = document.createElement('span');
       ball.className = `ball ${ballClass(n)}`;
       ball.style.animationDelay = `${i * 60 + j * 50}ms`;
-      ball.textContent = n;
+
+      const bananaImg = document.createElement('span');
+      bananaImg.className = 'banana-img';
+      bananaImg.textContent = '🍌';
+
+      const bananaNum = document.createElement('span');
+      bananaNum.className = 'banana-num';
+      bananaNum.textContent = n;
+
+      ball.appendChild(bananaImg);
+      ball.appendChild(bananaNum);
       wrapper.appendChild(ball);
     });
 
