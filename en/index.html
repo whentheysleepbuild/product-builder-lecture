@@ -1,44 +1,44 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로또 자동 추첨기</title>
+  <title>Lotto Number Generator</title>
   <link href='/style.css' rel='stylesheet'>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="header-top">
-        <a class="lang-btn" href="/en/" aria-label="English">🌐</a>
-        <h1>🎱 로또 자동 추첨기</h1>
-        <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <a class="lang-btn" href="/" aria-label="한국어">🇰🇷</a>
+        <h1>🎱 Lotto Number Generator</h1>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
           <span class="theme-icon"></span>
         </button>
       </div>
-      <p class="subtitle">1~45 중 6개 번호를 자동으로 추첨합니다</p>
+      <p class="subtitle">Automatically draw 6 numbers from 1 to 45</p>
     </header>
 
     <div class="controls">
       <div class="game-count-wrapper">
-        <label for="gameCount">게임 수</label>
+        <label for="gameCount">Games</label>
         <div class="count-selector">
-          <button class="count-btn" id="decreaseBtn" aria-label="감소">−</button>
+          <button class="count-btn" id="decreaseBtn" aria-label="Decrease">−</button>
           <span id="gameCount">5</span>
-          <button class="count-btn" id="increaseBtn" aria-label="증가">+</button>
+          <button class="count-btn" id="increaseBtn" aria-label="Increase">+</button>
         </div>
       </div>
       <button class="generate-btn" id="generateBtn">
         <span class="btn-icon">✨</span>
-        <span>번호 추첨</span>
+        <span>Draw Numbers</span>
       </button>
     </div>
 
     <div class="results" id="results"></div>
 
     <div class="actions" id="actions" hidden>
-      <button class="action-btn copy-btn" id="copyBtn">📋 복사</button>
-      <button class="action-btn reset-btn" id="resetBtn">🔄 초기화</button>
+      <button class="action-btn copy-btn" id="copyBtn">📋 Copy</button>
+      <button class="action-btn reset-btn" id="resetBtn">🔄 Reset</button>
     </div>
 
     <div class="color-guide">
@@ -52,6 +52,6 @@
 
   <div class="toast" id="toast"></div>
 
-  <script defer type="module" src="/main.js"></script>
+  <script defer type="module" src="/en/main.js"></script>
 </body>
 </html>
