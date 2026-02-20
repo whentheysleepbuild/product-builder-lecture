@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로또 자동 추첨기</title>
+  <title>로또 자동 추첨기 — 무료 번호 자동 생성</title>
+  <meta name="description" content="로또 6/45 번호를 무료로 자동 추첨하세요. 1~45 중 6개 번호를 완전 무작위로 생성합니다. 최대 10게임까지 한 번에 추첨 가능.">
   <link href='/style.css' rel='stylesheet'>
   <meta name="google-adsense-account" content="ca-pub-4064409010741191">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4064409010741191"
@@ -44,8 +45,6 @@
       <button class="action-btn reset-btn" id="resetBtn">🔄 초기화</button>
     </div>
 
-    <a class="contact-link" href="/contact.html">🤝 제휴 문의</a>
-
     <div class="color-guide">
       <span class="guide-item ball yellow-ball"><span class="banana-img">🍌</span><span class="banana-num">1–10</span></span>
       <span class="guide-item ball blue-ball"><span class="banana-img">🍌</span><span class="banana-num">11–20</span></span>
@@ -53,6 +52,103 @@
       <span class="guide-item ball gray-ball"><span class="banana-img">🍌</span><span class="banana-num">31–40</span></span>
       <span class="guide-item ball green-ball"><span class="banana-img">🍌</span><span class="banana-num">41–45</span></span>
     </div>
+
+    <section class="info-section">
+      <h2 class="section-title">🎱 로또 6/45란?</h2>
+      <p class="section-body">
+        로또 6/45는 1부터 45까지의 숫자 중 6개를 선택해 추첨 번호와 일치하는 개수에 따라 상금을 받는 대한민국 대표 복권입니다.
+        매주 토요일 밤 8시 35분에 추첨이 진행되며, 1게임당 구입 금액은 1,000원입니다.
+        당첨금의 일부는 복권기금으로 적립되어 소외 계층 지원 등 공익사업에 활용됩니다.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">📋 이용 방법</h2>
+      <p class="section-body">
+        1. 상단 버튼으로 게임 수(1~10)를 선택하세요.<br>
+        2. <strong>번호 추첨</strong> 버튼을 눌러 무작위 번호를 생성하세요.<br>
+        3. 📋 복사 버튼으로 번호를 클립보드에 복사하세요.<br>
+        4. 복권 판매점 또는 동행복권 앱에서 해당 번호로 구매하세요.<br>
+        5. 매주 토요일 추첨 결과를 확인하세요.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">🏆 당첨 등수 및 확률</h2>
+      <table class="prize-table">
+        <thead>
+          <tr>
+            <th>등수</th>
+            <th>당첨 조건</th>
+            <th>확률</th>
+            <th>당첨금</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="prize-rank">1등</span></td>
+            <td>6개 번호 일치</td>
+            <td>1/8,145,060</td>
+            <td>판매액의 40%</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">2등</span></td>
+            <td>5개 + 보너스 번호</td>
+            <td>1/1,357,510</td>
+            <td>판매액의 10%</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">3등</span></td>
+            <td>5개 번호 일치</td>
+            <td>1/35,724</td>
+            <td>판매액의 15%</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">4등</span></td>
+            <td>4개 번호 일치</td>
+            <td>1/733</td>
+            <td>5만원 고정</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">5등</span></td>
+            <td>3개 번호 일치</td>
+            <td>1/45</td>
+            <td>5천원 고정</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">❓ 자주 묻는 질문</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Q. 번호는 정말 무작위로 생성되나요?</p>
+          <p class="faq-a">네. 브라우저의 암호학적 난수 생성기(crypto.getRandomValues)를 사용해 완전 무작위 번호를 생성합니다. 특정 번호에 편향이 없습니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. 자동 추첨 번호로 1등이 될 수 있나요?</p>
+          <p class="faq-a">물론입니다. 로또 당첨 확률은 번호 선택 방식에 관계없이 동일합니다. 자동 추첨과 수동 선택 모두 약 814만 분의 1의 확률을 가집니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. 생성된 번호를 저장할 수 있나요?</p>
+          <p class="faq-a">📋 복사 버튼을 눌러 클립보드에 복사한 뒤, 메모장이나 카카오톡 등에 붙여넣기 하여 저장할 수 있습니다.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. 이용 요금이 있나요?</p>
+          <p class="faq-a">완전 무료로 이용하실 수 있습니다. 번호 생성에 아무런 비용이 들지 않습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <nav class="footer-links">
+        <a class="footer-link" href="/privacy.html">개인정보처리방침</a>
+        <a class="footer-link" href="/contact.html">🤝 제휴 문의</a>
+        <a class="footer-link" href="/en/">English</a>
+      </nav>
+      <p class="footer-copy">© 2026 로또 자동 추첨기 · 본 서비스는 동행복권과 무관한 독립 사이트입니다.</p>
+    </footer>
   </div>
 
   <div class="toast" id="toast"></div>

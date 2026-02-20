@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lotto Number Generator</title>
+  <title>Lotto Number Generator — Free Auto Draw</title>
+  <meta name="description" content="Generate random Korean Lotto 6/45 numbers for free. Instantly draw up to 10 sets of 6 numbers from 1 to 45. No registration required.">
   <link href='/style.css' rel='stylesheet'>
   <meta name="google-adsense-account" content="ca-pub-4064409010741191">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4064409010741191"
@@ -44,8 +45,6 @@
       <button class="action-btn reset-btn" id="resetBtn">🔄 Reset</button>
     </div>
 
-    <a class="contact-link" href="/en/contact.html">🤝 Partnership Inquiry</a>
-
     <div class="color-guide">
       <span class="guide-item ball yellow-ball"><span class="banana-img">🍌</span><span class="banana-num">1–10</span></span>
       <span class="guide-item ball blue-ball"><span class="banana-img">🍌</span><span class="banana-num">11–20</span></span>
@@ -53,6 +52,101 @@
       <span class="guide-item ball gray-ball"><span class="banana-img">🍌</span><span class="banana-num">31–40</span></span>
       <span class="guide-item ball green-ball"><span class="banana-img">🍌</span><span class="banana-num">41–45</span></span>
     </div>
+
+    <section class="info-section">
+      <h2 class="section-title">🎱 What is Lotto 6/45?</h2>
+      <p class="section-body">
+        Korean Lotto 6/45 is the country's most popular lottery. Players choose 6 numbers from 1 to 45, and prizes are awarded based on how many numbers match the official weekly draw. Draws are held every Saturday at 8:35 PM KST. Each game costs ₩1,000, and a portion of ticket sales is allocated to public welfare programs.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">📋 How to Use</h2>
+      <p class="section-body">
+        1. Select how many games to generate (1–10).<br>
+        2. Press <strong>Draw Numbers</strong> to generate random number sets.<br>
+        3. Tap 📋 Copy to copy all numbers to your clipboard.<br>
+        4. Purchase tickets at an authorized retailer or the Dong-haeng Lottery app.<br>
+        5. Check the official results every Saturday after the draw.
+      </p>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">🏆 Prize Tiers &amp; Odds</h2>
+      <table class="prize-table">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Match</th>
+            <th>Odds</th>
+            <th>Prize</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="prize-rank">1st</span></td>
+            <td>All 6 numbers</td>
+            <td>1 in 8,145,060</td>
+            <td>40% of prize pool</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">2nd</span></td>
+            <td>5 numbers + bonus</td>
+            <td>1 in 1,357,510</td>
+            <td>10% of prize pool</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">3rd</span></td>
+            <td>5 numbers</td>
+            <td>1 in 35,724</td>
+            <td>15% of prize pool</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">4th</span></td>
+            <td>4 numbers</td>
+            <td>1 in 733</td>
+            <td>Fixed ₩50,000</td>
+          </tr>
+          <tr>
+            <td><span class="prize-rank">5th</span></td>
+            <td>3 numbers</td>
+            <td>1 in 45</td>
+            <td>Fixed ₩5,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="info-section">
+      <h2 class="section-title">❓ Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <p class="faq-q">Q. Are the numbers truly random?</p>
+          <p class="faq-a">Yes. We use the browser's cryptographic random number generator (crypto.getRandomValues) to ensure completely unbiased number selection every time.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. Can auto-generated numbers win the jackpot?</p>
+          <p class="faq-a">Absolutely. The odds are identical regardless of how you pick your numbers. Whether you use auto-draw or manual selection, the probability is 1 in 8,145,060.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. How do I save my numbers?</p>
+          <p class="faq-a">Tap the 📋 Copy button to copy all numbers to your clipboard, then paste them into any notes app or messaging app for safekeeping.</p>
+        </div>
+        <div class="faq-item">
+          <p class="faq-q">Q. Is this service free?</p>
+          <p class="faq-a">Completely free. There are no charges or fees for generating lottery numbers.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <nav class="footer-links">
+        <a class="footer-link" href="/en/privacy.html">Privacy Policy</a>
+        <a class="footer-link" href="/en/contact.html">🤝 Partnership</a>
+        <a class="footer-link" href="/">한국어</a>
+      </nav>
+      <p class="footer-copy">© 2026 Lotto Number Generator · Independent service, unaffiliated with Dong-haeng Lottery.</p>
+    </footer>
   </div>
 
   <div class="toast" id="toast"></div>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Lotto Number Generator</title>
+  <meta name="description" content="Privacy policy for Lotto Number Generator. Learn how we handle data, including Google AdSense advertising cookies.">
+  <link href='/style.css' rel='stylesheet'>
+  <meta name="google-adsense-account" content="ca-pub-4064409010741191">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4064409010741191"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <a class="lang-btn" href="/privacy.html" aria-label="한국어">🇰🇷</a>
+        <h1>Privacy Policy</h1>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon"></span>
+        </button>
+      </div>
+      <p class="subtitle">Last updated: February 2026</p>
+    </header>
+
+    <div class="privacy-card">
+      <div class="privacy-section">
+        <h2>1. Overview</h2>
+        <p>Lotto Number Generator ("the Service") respects your privacy and is committed to protecting any information related to your use of this site. This policy explains what data is collected and how it is used.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>2. Information We Collect</h2>
+        <p>The Service does not require registration or login, and we do not directly collect personal information from users. However, the following data may be collected automatically:</p>
+        <ul>
+          <li>Standard server log data (IP address, browser type, pages visited, time of visit)</li>
+          <li>Advertising-related identifiers via cookies from third-party ad services (see Section 3)</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>3. Third-Party Advertising (Google AdSense)</h2>
+        <p>This Service uses Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to this and other websites.</p>
+        <ul>
+          <li>To learn more about how Google uses advertising cookies, visit <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google's Advertising Policies</a>.</li>
+          <li>You can opt out of personalized advertising via <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google Ad Settings</a>.</li>
+          <li>You may also opt out of third-party advertising networks at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">aboutads.info</a>.</li>
+        </ul>
+      </div>
+
+      <div class="privacy-section">
+        <h2>4. Local Storage</h2>
+        <p>The Service uses your browser's local storage to remember your chosen theme (dark or light mode). This data is stored only on your device and is never transmitted to any server.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>5. Data Retention</h2>
+        <p>The Service does not store personal information on our servers. Retention of any data collected via Google AdSense is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a>.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>6. Your Rights</h2>
+        <p>You can disable or delete cookies at any time through your browser settings. Note that disabling cookies may affect how third-party advertisements are displayed.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>7. Changes to This Policy</h2>
+        <p>This policy may be updated to reflect changes in law or service features. Any updates will be posted on this page with a revised "Last updated" date at the top.</p>
+      </div>
+
+      <div class="privacy-section">
+        <h2>8. Contact</h2>
+        <p>For questions about this privacy policy, please use our <a href="/en/contact.html">Partnership Inquiry page</a>.</p>
+      </div>
+    </div>
+
+    <a class="back-link" href="/en/">← Back to Lotto Generator</a>
+
+    <footer class="site-footer">
+      <nav class="footer-links">
+        <a class="footer-link" href="/en/privacy.html">Privacy Policy</a>
+        <a class="footer-link" href="/en/contact.html">🤝 Partnership</a>
+        <a class="footer-link" href="/privacy.html">한국어</a>
+      </nav>
+      <p class="footer-copy">© 2026 Lotto Number Generator · Independent service, unaffiliated with Dong-haeng Lottery.</p>
+    </footer>
+  </div>
+
+  <script>
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = savedTheme ?? (prefersDark ? 'dark' : 'light');
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+  </script>
+</body>
+</html>
