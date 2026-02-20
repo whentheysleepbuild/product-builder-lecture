@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://product-builder-lecture-8gb.pages.dev/sitemap.xml
